@@ -30,6 +30,7 @@ namespace PPI_Server
             listener.Listen(100);
             while (true)
             {
+                
                 using (var handler = await listener.AcceptAsync())
                 {
                     var buffer = new byte[1_024];
@@ -37,6 +38,7 @@ namespace PPI_Server
                      rgb = Encoding.UTF8.GetString(buffer, 0, received);
                     doChange = true;
                 }
+
             }
         });
 
@@ -62,6 +64,11 @@ namespace PPI_Server
                 doChange = false;
                 timer1.Start();
             }
+        }
+
+        private void Form1_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            
         }
     }
 }
