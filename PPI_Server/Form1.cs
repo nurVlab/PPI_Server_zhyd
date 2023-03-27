@@ -28,21 +28,15 @@ namespace PPI_Server
     ProtocolType.Tcp);
             listener.Bind(ipEndPoint);
             listener.Listen(100);
-            while (true)
-            {
-                
                 using (var handler = await listener.AcceptAsync())
                 {
                     var buffer = new byte[1_024];
                     var received = await handler.ReceiveAsync(buffer, SocketFlags.None);
                      rgb = Encoding.UTF8.GetString(buffer, 0, received);
                     doChange = true;
-                }
-
-            }
+                }  
+                listener.Close();
         });
-
-        
 
         private void Form1_Load(object sender, EventArgs e)
         {
