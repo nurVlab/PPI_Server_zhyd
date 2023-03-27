@@ -66,9 +66,6 @@ namespace PPI_Server
             }
         }
 
-        private void Form1_FormClosing(object sender, FormClosingEventArgs e)
-        {
-            
-        }
+      
     }
 }
